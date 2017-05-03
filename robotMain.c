@@ -7,7 +7,9 @@
 
 task main()
 {
-
-
+	SensorValue[sortenc1] = 0;
+	while(SensorValue[sortenc1] < 1800){
+startMotor(sortmotor, 100);
+}
 
 }
