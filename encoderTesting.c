@@ -33,11 +33,13 @@ task main()
 				repeatUntil(SensorValue[sortenc1] == 1800){
 					startMotor(sortmotor, 100);
 				}
+				stopMotor(sortmotor);
 			}
 			if(SensorValue[sortenc1] > 600){
 				repeatUntil(SensorValue[sortenc1] == 1800){
 					startMotor(sortmotor, -100);
 				}
+				stopMotor(sortmotor);
 			}
 		}
 		if(SensorValue[pos3]){
@@ -45,11 +47,13 @@ task main()
 				repeatUntil(SensorValue[sortenc1] == 1800){
 					startMotor(sortmotor, 100);
 				}
+				stopMotor(sortmotor);
 			}
 			if(SensorValue[sortenc1] > 1200){
 				repeatUntil(SensorValue[sortenc1] == 1800){
 					startMotor(sortmotor, -100);
 				}
+				stopMotor(sortmotor);
 			}
 		}
 	}
