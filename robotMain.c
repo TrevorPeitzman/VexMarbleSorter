@@ -11,5 +11,5 @@ task main()
 	while(SensorValue[sortenc1] < 1800){
 startMotor(sortmotor, 100);
 }
-
+//while()
 }
