@@ -17,7 +17,6 @@ task main()
 			if(SensorValue[sortenc1] < 1800){
 				repeatUntil(SensorValue[sortenc1] == 1800){
 					startMotor(sortmotor, 100);
-					//waitUntil(SensorValue[sortenc1] = 1800);
 				}
 				stopMotor(sortmotor);
 			}
@@ -30,13 +29,13 @@ task main()
 		}
 		if(SensorValue[pos2]){
 			if(SensorValue[sortenc1] < 600){
-				repeatUntil(SensorValue[sortenc1] == 1800){
+				repeatUntil(SensorValue[sortenc1] == 600){
 					startMotor(sortmotor, 100);
 				}
 				stopMotor(sortmotor);
 			}
 			if(SensorValue[sortenc1] > 600){
-				repeatUntil(SensorValue[sortenc1] == 1800){
+				repeatUntil(SensorValue[sortenc1] == 600){
 					startMotor(sortmotor, -100);
 				}
 				stopMotor(sortmotor);
@@ -44,13 +43,13 @@ task main()
 		}
 		if(SensorValue[pos3]){
 			if(SensorValue[sortenc1] < 1200){
-				repeatUntil(SensorValue[sortenc1] == 1800){
+				repeatUntil(SensorValue[sortenc1] == 1200){
 					startMotor(sortmotor, 100);
 				}
 				stopMotor(sortmotor);
 			}
 			if(SensorValue[sortenc1] > 1200){
-				repeatUntil(SensorValue[sortenc1] == 1800){
+				repeatUntil(SensorValue[sortenc1] == 1200){
 					startMotor(sortmotor, -100);
 				}
 				stopMotor(sortmotor);
