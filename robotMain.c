@@ -17,7 +17,7 @@ int posmotor = 25;
 int negmotor = -25;
 
 //Servo Value Constants
-int grabmarble = 90;
+int grabmarble = 40;
 int dropmarble = -70;
 int scanclosed = -100;
 int neutral = 0;
