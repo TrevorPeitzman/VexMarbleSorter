@@ -25,7 +25,6 @@ int neutral = 0;
 //Encoder Position Values
 int metalbox = 0;
 int woodbox = 261;
-//int clearbox = 3;
 int opaquebox = -219;
 
 //Marble Line Follow Value Constants
@@ -87,20 +86,6 @@ task main()
 						setServo(indexservo, neutral);
 					}
 				}
-				//			if(SensorValue[linefollow] == clear){
-				//				if(SensorValue[sortenc1] < clearbox){
-				//					repeatUntil(SensorValue[sortenc1] == clearbox){
-				//						startMotor(sortmotor, 100);
-				//					}
-				//					stopMotor(sortmotor);
-				//				}
-				//				if(SensorValue[sortenc1] > clearbox){
-				//					repeatUntil(SensorValue[sortenc1] == clearbox){
-				//						startMotor(sortmotor, -100);
-				//					}
-				//					stopMotor(sortmotor);
-				//				}
-				//		}
 				if(SensorValue[linefollow] >= opaquelo && SensorValue[linefollow] <= opaquehi){
 					if(SensorValue[sortenc1] < opaquebox){
 						repeatUntil(SensorValue[sortenc1] == opaquebox){
