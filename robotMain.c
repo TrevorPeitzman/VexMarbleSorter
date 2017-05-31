@@ -37,69 +37,71 @@ int opaquehi = 1000;
 
 task main()
 {
-	while(true){
+	while(true){	//Strictly a failsafe in case the following loop is somehow exited
 
-		//Setup
+		//Setup - Run only once, starts immediately upon pressing "Start" in the RobotC environment
 		setServo(indexservo, scanclosed);
 		SensorValue[sortenc1] = 0;
 		motor[light] = 127;
 
-		if(SensorValue[startsw]){
+		if(SensorValue[startsw]){	//Once the start switch is pressed, enter the sort loop
 			while(true){
-				setServo(indexservo, grabmarble);
+				setServo(indexservo, grabmarble); //Grab the first marble
 				wait(0.4);
-				setServo(indexservo, dropmarble);
+				setServo(indexservo, dropmarble); //Drop the marble on the track to the sorter
 				wait(0.4);
-				setServo(indexservo, scanclosed);
+				setServo(indexservo, scanclosed); //Close the line follower all the way
 				wait(4);
 
 				//Begin Marble Type Determnination
-				if(SensorValue[metalsw]){
-					if(SensorValue[sortenc1] < metalbox){
-						repeatUntil(SensorValue[sortenc1] == metalbox){
+				if(SensorValue[metalsw]){	//If the paperclips create a contact closure
+					if(SensorValue[sortenc1] < metalbox){	//If the metal box is off to the left
+						repeatUntil(SensorValue[sortenc1] == metalbox){	//move box to the center
 							startMotor(sortmotor, negmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
-					if(SensorValue[sortenc1] > metalbox){
-						repeatUntil(SensorValue[sortenc1] == metalbox){
+					if(SensorValue[sortenc1] > metalbox){	//If the metal box is off to the right
+						repeatUntil(SensorValue[sortenc1] == metalbox){	//move box to the center
 							startMotor(sortmotor, posmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
 				}
 				if(SensorValue[linefollow] >= clearlo && SensorValue[linefollow] <= clearhi){
-					if(SensorValue[sortenc1] < clearbox){
-						repeatUntil(SensorValue[sortenc1] == clearbox){
+					//If the readout value from the light sensor is within the range applicable to clear marbles
+					if(SensorValue[sortenc1] < clearbox){	//If the clear box is off to the right
+						repeatUntil(SensorValue[sortenc1] == clearbox){	//move box to the center
 							startMotor(sortmotor, negmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
-					if(SensorValue[sortenc1] > clearbox){
-						repeatUntil(SensorValue[sortenc1] == clearbox){
+					if(SensorValue[sortenc1] > clearbox){	//If the clear box is off to the right
+						repeatUntil(SensorValue[sortenc1] == clearbox){	//move box to the center
 							startMotor(sortmotor, posmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
 				}
 				if(SensorValue[linefollow] >= opaquelo && SensorValue[linefollow] <= opaquehi){
-					if(SensorValue[sortenc1] < opaquebox){
-						repeatUntil(SensorValue[sortenc1] == opaquebox){
+					//If the readout value from the light sensor is within the range applicable to clear marbles
+					if(SensorValue[sortenc1] < opaquebox){	//If the opaque box is off to the left
+						repeatUntil(SensorValue[sortenc1] == opaquebox){  //move box to the center
 							startMotor(sortmotor, negmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
-					if(SensorValue[sortenc1] > opaquebox){
-						repeatUntil(SensorValue[sortenc1] == opaquebox){
+					if(SensorValue[sortenc1] > opaquebox){	//If the opaque box is off to the right
+						repeatUntil(SensorValue[sortenc1] == opaquebox){  //move box to the center
 							startMotor(sortmotor, posmotor);
 						}
 						stopMotor(sortmotor);
-						setServo(indexservo, neutral);
+						setServo(indexservo, neutral);	//Drop the marble
 					}
 				}
 			}
