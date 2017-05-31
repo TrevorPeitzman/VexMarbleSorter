@@ -39,7 +39,7 @@ task main()
 {
 	while(true){	//Strictly a failsafe in case the following loop is somehow exited
 
-		//Setup - Run only once, starts immediately upon pressing "Start" in the RobotC environment
+		//Init - Run only once, starts immediately upon pressing "Start" in the RobotC environment
 		setServo(indexservo, scanclosed);
 		SensorValue[sortenc1] = 0;
 		motor[light] = 127;
